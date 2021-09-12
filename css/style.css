@@ -49,6 +49,7 @@ body {
   height: 150px;
 }
 .cart {
+  background-color: burlywood;
   width: 350px;
   /* border: 1px solid green; */
   padding: 10px;
