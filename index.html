@@ -21,19 +21,26 @@
 
 <body>
   <!-- header start here  -->
-  <header></header>
-  <!-- main start here  -->
-  <main class="main">
-    <!-- search field  -->
-    <div class="search-field">
-      <div class="search-box">
-        <input id="input-field" class="search-field" type="text" />
-        <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
-          autocomplete="off" id="search-btn" onclick="loadProducts()">
-          Search
-        </button>
+  <header>
+    <div class="logo-search">
+      <div class="logo">
+        <img src="logo.png" alt="">
+      </div>
+       <!-- search field  -->
+       <div class="search-field">
+        <div class="search-box">
+          <input id="input-field" class="search-field" placeholder="search item" type="text" />
+          <button type="button" class="search-button" data-toggle="button" aria-pressed="false"
+            autocomplete="off" id="search-btn" onclick="loadProducts()">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
       </div>
     </div>
+  </header>
+  <!-- main start here  -->
+  <main class="main">
+   
     <!-- all product  -->
     <div class="row">
       <div class="col-md-9 col-lg-9 col-sm-7">
