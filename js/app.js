@@ -6,10 +6,10 @@ const loadProducts = () => {
 };
 loadProducts();
 
-// show all product in UI 
+// show all product in UI
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
-  console.log(allProducts)
+  // console.log(allProducts);
   for (const product of allProducts) {
     const image = product.images;
     const div = document.createElement("div");
@@ -21,6 +21,13 @@ const showProducts = (products) => {
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
+      <p><span>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      </span> ${product.rating.rate} Ratings | ${product.rating.count} people rated</p>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button id="details-btn" class="btn btn-danger">Details</button></div>
       `;
@@ -46,7 +53,7 @@ const getInputValue = (id) => {
 // main price update function
 const updatePrice = (id, value) => {
   const convertedOldPriceText = document.getElementById(id).innerText;
-  const convertedOldPrice=parseFloat(convertedOldPriceText);
+  const convertedOldPrice = parseFloat(convertedOldPriceText);
   const convertPrice = parseFloat(value);
   const total = convertedOldPrice + convertPrice;
   document.getElementById(id).innerText = total.toFixed(2);
@@ -76,12 +83,12 @@ const updateTaxAndCharge = () => {
 
 //grandTotal update function
 const updateTotal = () => {
-    const priceText=document.getElementById("price").innerText;
-    const price=parseFloat(priceText);
-    const deliveryCharge=getInputValue("delivery-charge");
-    const totalTax=getInputValue("total-tax");
-    const grandTotalFloat=price+deliveryCharge+totalTax;
-    const grandTotal=grandTotalFloat.toFixed(2)
+  const priceText = document.getElementById("price").innerText;
+  const price = parseFloat(priceText);
+  const deliveryCharge = getInputValue("delivery-charge");
+  const totalTax = getInputValue("total-tax");
+  const grandTotalFloat = price + deliveryCharge + totalTax;
+  const grandTotal = grandTotalFloat.toFixed(2);
   document.getElementById("total").innerText = grandTotal;
 };
 
