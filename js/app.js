@@ -104,7 +104,7 @@ const getDetails=(id)=>{
 // display details function 
 
 const displaDetails=(data)=>{
-  console.log(data)
+  // console.log(data)
   const productDetails=document.getElementById('product-details');
   const div=document.getElementById('details');
   div.innerHTML=`
