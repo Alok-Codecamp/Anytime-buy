@@ -29,7 +29,7 @@ const showProducts = (products) => {
       <i class="fas fa-star"></i>
       </span> ${product.rating.rate} Ratings | ${product.rating.count} people rated</p>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onclick="getDetails(${product.id})" id="details-btn" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -91,4 +91,40 @@ const updateTotal = () => {
   const grandTotal = grandTotalFloat.toFixed(2);
   document.getElementById("total").innerText = grandTotal;
 };
+
+// get details  function
+
+const getDetails=(id)=>{
+  const url=`https://fakestoreapi.com/products/${id}`
+  fetch(url)
+  .then(res=>res.json())
+  .then(data=>displaDetails(data))
+}
+
+// display details function 
+
+const displaDetails=(data)=>{
+  console.log(data)
+  const productDetails=document.getElementById('product-details');
+  const div=document.getElementById('details');
+  div.innerHTML=`
+  <img class="details-image" src=${data.image}></img>
+ <div class="product-info">
+ <h3>${data.title}</h3>
+ <p>Category: ${data.category}</p>
+ 
+ <p><span>
+ <i class="fas fa-star"></i>
+ <i class="fas fa-star"></i>
+ <i class="fas fa-star"></i>
+ <i class="fas fa-star"></i>
+ <i class="fas fa-star"></i>
+ </span> ${data.rating.rate} Ratings | ${data.rating.count} people rated</p>
+ <h2>Price: $ ${data.price}</h2>
+ <p class="product-desc">${data.description}</p>
+ </div>
+  `
+  productDetails.style.display='block'
+}
+
 
